@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
+    /// <summary>
+    /// 需要用到HealthBar脚本中的某个属性，将其作为该脚本的属性。由于保证数据的安全性，将该属性设置为只读。
+    /// </summary>
+    private HealthBar healthBarAttr;
+    public HealthBar HealthBarAttr { get => healthBarAttr; }
+
     private CharacterController pCharacterController;
     private Vector3 dir;
 
@@ -25,10 +31,14 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
 
     public float currentSpeed;
+    public Slider stamina;
+
+    public GameObject stamina_Panel;
     // Start is called before the first frame update
     void Start()
     {
         pCharacterController= GetComponent<CharacterController>();
+        healthBarAttr = stamina_Panel.GetComponent<HealthBar>();
     }
 
     // Update is called once per frame
@@ -51,7 +61,17 @@ public class PlayerController : MonoBehaviour
         pCharacterController.Move(velocity * Time.deltaTime);
     
         dir.Normalize();
-        currentSpeed = Input.GetKey(KeyCode.LeftShift)? sprintSpeed * dir.magnitude : walkSpeed * dir.magnitude;
+
+        //currentSpeed = Input.GetKey(KeyCode.LeftShift)? sprintSpeed * dir.magnitude : walkSpeed * dir.magnitude;
+
+        if(Input.GetKey(KeyCode.LeftShift) && HealthBarAttr.canSprint)
+        {
+            currentSpeed = sprintSpeed * dir.magnitude;
+        }
+        else
+        {
+            currentSpeed = walkSpeed* dir.magnitude;
+        }
 
         Debug.Log("当前速度: "+ currentSpeed);
         
