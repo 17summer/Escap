@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Sword
+  - Stump
+  - GemSword
+  - Axe
+  - stone
   layers:
   - Default
   - TransparentFX
@@ -12,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Environment
   - 
   - 
   - 

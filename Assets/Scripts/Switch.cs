@@ -16,7 +16,7 @@ public class Switch : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.B)) {
-            Debug.Log("Press B!");
+            Debug.Log("Press ESC!");
             Hud.SetActive(_onOff);
             if (_onOff)
             {

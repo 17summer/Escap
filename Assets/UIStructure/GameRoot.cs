@@ -47,7 +47,7 @@ public class GameRoot : MonoBehaviour
 
         #region push the first panel
         //root_SceneControl.scene_dict.Add();
-        root_UIMananger.Push(new StartPanel());
+        //root_UIMananger.Push(new beginPanel());
         #endregion
 
     }

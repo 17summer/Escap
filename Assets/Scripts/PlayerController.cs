@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             currentSpeed = walkSpeed* dir.magnitude;
         }
 
-        Debug.Log("当前速度: "+ currentSpeed);
+        //Debug.Log("当前速度: "+ currentSpeed);
         
         if(anim != null)
         {

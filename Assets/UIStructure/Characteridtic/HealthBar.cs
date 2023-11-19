@@ -14,8 +14,8 @@ public class HealthBar : MonoBehaviour
     public float damaged;
     public float stamina;
     public float lerpSpeed = 0.05f;
-    public float staminaRecoverSpeed = 6.7f;
-    public float staminaDepletionSpeed = 8.3f;
+    public float staminaRecoverSpeed = 8.3f;
+    public float staminaDepletionSpeed = 6.7f;
     public float sprintRecoverySpeed = 4.5f;
     public Text text_healthBar;
     public Text text_stamina;
@@ -28,7 +28,8 @@ public class HealthBar : MonoBehaviour
         health = maxHealth;
         stamina = maxStamina;
         text_healthBar.text = $"{health} / 100";
-        text_stamina.text = $"{health} / 100";
+        text_stamina.text = $"{maxStamina} / 100";
+        Debug.Log(healthSlider.value);
     }
 
     // Update is called once per frame
@@ -57,7 +58,7 @@ public class HealthBar : MonoBehaviour
             easeHealthSlider.value = Mathf.Lerp(easeHealthSlider.value, health, lerpSpeed);
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) && stamina > 0.0f && canSprint)
+        if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && stamina > 0.0f && canSprint)
         {
             isSprinting = true;
             stamina -= Time.deltaTime * staminaDepletionSpeed;
@@ -96,7 +97,7 @@ public class HealthBar : MonoBehaviour
         }
 
         stamina = Mathf.Clamp(stamina, 0f, 100f);
-
+        health = Mathf.Clamp(health, 0f, 100f);
         if (staminaBar.value != stamina)
         {
             staminaBar.value = stamina;
