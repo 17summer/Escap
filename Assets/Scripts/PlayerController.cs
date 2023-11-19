@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController pCharacterController;
     private Vector3 dir;
-
+    public GameObject myBag;
+    bool isOpen;
     public float walkSpeed;
     public float sprintSpeed;
     public float jumpSpeed; 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        OpenMyBag();
         isGrounded = Physics.CheckSphere(groundCheck.position, checkRadius, groundLayer);
         if (isGrounded && velocity.y < 0)
             velocity.y = 0.0f;
@@ -78,6 +80,14 @@ public class PlayerController : MonoBehaviour
         if(anim != null)
         {
             anim.SetFloat("Speed", currentSpeed);
+        }
+    }
+    void OpenMyBag()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            isOpen = !isOpen;
+            myBag.SetActive(isOpen);
         }
     }
 }
