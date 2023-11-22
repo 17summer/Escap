@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a18662e65e31740b52af61ac59f52d, type: 3}
-  m_Name: Shoe
-  m_EditorClassIdentifier: 
-  itemName: Shoe
+  m_Script: {fileID: 0}
+  m_Name: shoe
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  itemName: shoe
   itemImage: {fileID: 21300034, guid: 03dd1ef6fb163214c9e1ac0242dab3ba, type: 3}
   itemHeld: 1
-  itemInfo: "\u8FD9\u662F\u4E00\u53CC\u978B\u5B50"
-  equip: 1
+  itemInfo: This is a Shoe
+  equip: 0
