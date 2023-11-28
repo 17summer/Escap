@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController pCharacterController;
     private Vector3 dir;
-
+    
     public float walkSpeed;
     public float sprintSpeed;
     public float jumpSpeed; 
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         isGrounded = Physics.CheckSphere(groundCheck.position, checkRadius, groundLayer);
         if (isGrounded && velocity.y < 0)
             velocity.y = 0.0f;
@@ -80,4 +81,5 @@ public class PlayerController : MonoBehaviour
             anim.SetFloat("Speed", currentSpeed);
         }
     }
+   
 }
