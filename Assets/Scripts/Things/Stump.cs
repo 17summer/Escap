@@ -18,16 +18,19 @@ public class Stump : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision != null && collision.gameObject.CompareTag("Sword"))
+        if (collision != null && collision.gameObject.CompareTag("GemSword"))
         {
             // 造成伤害
             health -= 20;   
             Debug.Log("Suffer attack!");
 
-            // 检查生命值是否小于等于0，如果是，则销毁物体
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.Play();
+
+            // check whether its health is lower than 0, if so destroy gameobject
             if (health <= 0)
             {
-                Destroy(gameObject);
+                Destroy(gameObject,1);
             }
         }
     }
