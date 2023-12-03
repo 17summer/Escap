@@ -12,9 +12,9 @@ public class PlayerStatus : MonoBehaviour
     public bool stamina;
     public Slider playerStamina;
     private Animator animator;
+    public AudioClip clipHeartBeat;
+    public AudioClip clipWeapon;
 
-    //public float coolDownTime = 2.0f;
-    //private float nextFireTime = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,18 +53,21 @@ public class PlayerStatus : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             animator.SetBool("Axe",true);
+            weaponPlay();
+            StartCoroutine(weaponMusicPlay());
             Debug.Log("Mouse 1 is pressed.");
         }
+
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName("Axe"))
         {
             animator.SetBool("Axe", false);
         }
-
     }
 
-    private void OnCollisionEnter(Collision collision)
+    IEnumerator weaponMusicPlay()
     {
-        Debug.Log("Appear!");
+        yield return new WaitForSeconds(1);
+        audioSource.Stop();
     }
 
     IEnumerator StopMusicAfterDelay(float delay)
@@ -74,9 +77,15 @@ public class PlayerStatus : MonoBehaviour
         audioSource.Stop();
     }
 
+    void weaponPlay()
+    {
+        audioSource.clip = clipWeapon;
+        audioSource.Play();
+    }
+
     void heartBeatPlay()
     {
+        audioSource.clip = clipHeartBeat;
         audioSource.Play();
-        Debug.Log("Health is lower than 20!");
     }
 }

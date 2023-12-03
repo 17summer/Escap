@@ -34,11 +34,12 @@ public class RAYCastPickup : MonoBehaviour
             if (hit.collider != null)
             {
                 Debug.Log("Detect!");
-                if (hit.collider.tag == "Stump")
+                Debug.Log(hit.collider.tag);
+                if (hit.collider.tag == "stone")
                 {
                     Destroy(hit.collider.gameObject);
+                    Debug.Log("Destroyed!!");
                 }
-                Debug.Log("Hit: " + hit.collider.name);
             }
         }
     }
