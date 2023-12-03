@@ -1,0 +1,9 @@
+diff a/Assets/Scenes/Game.unity b/Assets/Scenes/Game.unity	(rejected hunks)
+@@ -256,6 +256,7 @@
+   isGrounded: 0
+   anim: {fileID: 18627768}
+   currentSpeed: 0
++  stamina: {fileID: 776629768}
+ --- !u!143 &18627771
+ CharacterController:
+   m_ObjectHideFlags: 0

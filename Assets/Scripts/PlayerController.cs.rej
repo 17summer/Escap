@@ -1,0 +1,11 @@
+diff a/Assets/Scripts/PlayerController.cs b/Assets/Scripts/PlayerController.cs	(rejected hunks)
+@@ -12,7 +12,8 @@
+ 
+     private CharacterController pCharacterController;
+     private Vector3 dir;
+-
++    public GameObject myBag;
++    bool isOpen;
+     public float walkSpeed;
+     public float sprintSpeed;
+     public float jumpSpeed; 
