@@ -48,6 +48,8 @@ public class RAYCastPickup : MonoBehaviour
                 if(hit.collider.tag == "Grass")
                 {
                     Destroy(hit.collider.gameObject);
+                    Debug.Log(hit.collider.gameObject.GetComponent<Grass>().item.name);
+                    itemOnWorld.GetInstance().AddNewItem(hit.collider.gameObject.GetComponent<Grass>().item);
                 }
             }
             

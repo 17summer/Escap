@@ -17,19 +17,25 @@ public class itemOnWorld : MonoBehaviour
             return instance;
         }
     }
+
+    public itemOnWorld()
+    {
+        instance = this;
+    }
+
     public Item thisItem;
     public Inventory playerInventory;
-    private void OnTriggerEnter2D(Collider2D collision)//自动拾取
+    //private void OnTriggerEnter2D(Collider2D collision)//自动拾取
+    //{
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        AddNewItem();
+    //        Destroy(gameObject);
+    //    }
+    //}
+    public void AddNewItem(Item item)//在背包中添加物品
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            AddNewItem();
-            Destroy(gameObject);
-        }
-    }
-    public void AddNewItem()//在背包中添加物品
-    {
-        if (!playerInventory.itemList.Contains(thisItem))
+        if (!playerInventory.itemList.Contains(item))
         {
             //playerInventory.itemList.Add(thisItem);
             //InventoryManager.CreateNewItem(thisItem);
@@ -37,14 +43,14 @@ public class itemOnWorld : MonoBehaviour
             {
                 if (playerInventory.itemList[i] == null)
                 {
-                    playerInventory.itemList[i] = thisItem;
+                    playerInventory.itemList[i] = item;
                     break;
                 }
             }
         }
         else
         {
-            thisItem.itemHeld += 1;
+            item.itemHeld += 1;
         }
         InventoryManager.RefreshItem();
     }
