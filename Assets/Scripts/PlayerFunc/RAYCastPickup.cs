@@ -31,6 +31,7 @@ public class RAYCastPickup : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, range,layerMask))
         {
+            Debug.Log(hit.collider.tag);
             if (hit.collider != null)
             {
                 Debug.Log("Detect!");
@@ -39,6 +40,22 @@ public class RAYCastPickup : MonoBehaviour
                 {
                     Destroy(hit.collider.gameObject);
                     Debug.Log("Destroyed!!");
+                }
+            }
+
+            if (hit.collider != null)
+            {
+                if(hit.collider.tag == "Grass")
+                {
+                    Destroy(hit.collider.gameObject);
+                }
+            }
+            
+            if (hit.collider != null)
+            {
+                if(hit.collider.tag == "Branch")
+                {
+                    Destroy(hit.collider.gameObject);
                 }
             }
         }

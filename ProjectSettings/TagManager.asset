@@ -9,6 +9,8 @@ TagManager:
   - GemSword
   - Axe
   - stone
+  - Grass
+  - Branch
   layers:
   - Default
   - TransparentFX

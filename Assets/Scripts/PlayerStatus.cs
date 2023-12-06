@@ -15,9 +15,11 @@ public class PlayerStatus : MonoBehaviour
     public AudioClip clipHeartBeat;
     public AudioClip clipWeapon;
 
+    private bool flag;
     // Start is called before the first frame update
     void Start()
     {
+        flag = true;
         animator = GetComponent<Animator>();
         heartBeatTime = 5.0f;
     }
@@ -50,18 +52,29 @@ public class PlayerStatus : MonoBehaviour
             hasPlay = false;
         }
 
+        // sword music effect and wave animation
         if(Input.GetMouseButtonDown(0))
         {
             animator.SetBool("Axe",true);
-            weaponPlay();
-            StartCoroutine(weaponMusicPlay());
+            if(flag)
+            {
+                StartCoroutine(weaponWaitMusicPlay());
+                weaponPlay(flag);
+                StartCoroutine(weaponMusicPlay());
+            }
             Debug.Log("Mouse 1 is pressed.");
+            flag = false;
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.7f && animator.GetCurrentAnimatorStateInfo(0).IsName("Axe"))
         {
+            flag = true;
             animator.SetBool("Axe", false);
         }
+    }
+    IEnumerator weaponWaitMusicPlay()
+    {
+        yield return new WaitForSeconds(1);
     }
 
     IEnumerator weaponMusicPlay()
@@ -77,10 +90,14 @@ public class PlayerStatus : MonoBehaviour
         audioSource.Stop();
     }
 
-    void weaponPlay()
+    void weaponPlay(bool flag)
     {
-        audioSource.clip = clipWeapon;
-        audioSource.Play();
+        if(flag)
+        {
+            audioSource.clip = clipWeapon;
+            audioSource.Play();
+        }
+        
     }
 
     void heartBeatPlay()
