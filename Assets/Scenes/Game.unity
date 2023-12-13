@@ -5362,73 +5362,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &679592934
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 31.089802
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -63.37787
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_Name
-      value: "\u677F\u7403\u9986 1"
-      objectReference: {fileID: 0}
-    - target: {fileID: 8893659367567733381, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8893659367567733381, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: fd37089ddba25c94288144cdaa2ed095, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 65702495048144492, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-    - {fileID: -8700617353114198275, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d0cdf4f3d4a3f714b900b9d6c1468c3b, type: 3}
 --- !u!1 &683036288
 GameObject:
   m_ObjectHideFlags: 0
@@ -6744,11 +6677,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &862429166 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2809584198931772431, guid: 26189de6b8417744085c3eefe2c4708a, type: 3}
-  m_PrefabInstance: {fileID: 945825097}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &881941102
 GameObject:
   m_ObjectHideFlags: 0
@@ -15476,8 +15404,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   current: {fileID: 1839435282}
-  currentModel: {fileID: 862429166}
-  equipment: {fileID: 2809584198931772431, guid: 3f9c5e3514044c5478a3743ffbef513b, type: 3}
+  currentModel: {fileID: 0}
+  Axe: {fileID: 8025604515751361254, guid: 62771bb80c572f941a3c486d5842175d, type: 3}
+  GemSword: {fileID: 2809584198931772431, guid: 3f9c5e3514044c5478a3743ffbef513b, type: 3}
+  Sword: {fileID: 2809584198931772431, guid: 26189de6b8417744085c3eefe2c4708a, type: 3}
 --- !u!1 &2030842398
 GameObject:
   m_ObjectHideFlags: 0
@@ -16525,6 +16455,5 @@ SceneRoots:
   - {fileID: 372346206}
   - {fileID: 759347526}
   - {fileID: 110159940}
-  - {fileID: 679592934}
   - {fileID: 8825387613710589441}
   - {fileID: 2000822998}
