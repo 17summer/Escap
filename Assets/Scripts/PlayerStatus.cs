@@ -14,12 +14,14 @@ public class PlayerStatus : MonoBehaviour
     private Animator animator;
     public AudioClip clipHeartBeat;
     public AudioClip clipWeapon;
+    public HealthBar healthBar;
 
     private bool flag;
     // Start is called before the first frame update
     void Start()
     {
         flag = true;
+        healthBar = FindObjectOfType<HealthBar>();
         animator = GetComponent<Animator>();
         heartBeatTime = 5.0f;
     }
@@ -99,7 +101,14 @@ public class PlayerStatus : MonoBehaviour
         }
         
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag=="Bullet")
+        {
+            Debug.Log("Hit by bullet");
+            healthBar.takeDamage(5);
+        }
+    }
     void heartBeatPlay()
     {
         audioSource.clip = clipHeartBeat;

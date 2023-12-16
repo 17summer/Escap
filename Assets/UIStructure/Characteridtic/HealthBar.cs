@@ -109,7 +109,7 @@ public class HealthBar : MonoBehaviour
     /// 
     /// </summary>
     /// <param name="damage"></param>
-    void takeDamage(float damage)
+    public void takeDamage(float damage)
     {
         health -= damage;
     }

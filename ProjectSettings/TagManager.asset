@@ -11,6 +11,8 @@ TagManager:
   - stone
   - Grass
   - Branch
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
