@@ -13,6 +13,8 @@ TagManager:
   - Branch
   - Enemy
   - Bullet
+  - Key
+  - Gem
   layers:
   - Default
   - TransparentFX

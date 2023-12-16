@@ -39,6 +39,7 @@ public class RAYCastPickup : MonoBehaviour
                 if (hit.collider.tag == "stone")
                 {
                     Destroy(hit.collider.gameObject);
+                    itemOnWorld.GetInstance().AddNewItem(hit.collider.gameObject.GetComponent<Stone>().item);
                     Debug.Log("Destroyed!!");
                 }
             }
@@ -48,14 +49,41 @@ public class RAYCastPickup : MonoBehaviour
                 if(hit.collider.tag == "Grass")
                 {
                     Destroy(hit.collider.gameObject);
+                    Debug.Log(hit.collider.gameObject.GetComponent<Grass>().item.name);
+                    itemOnWorld.GetInstance().AddNewItem(hit.collider.gameObject.GetComponent<Grass>().item);
                 }
             }
             
             if (hit.collider != null)
             {
-                if(hit.collider.tag == "Branch")
+                if (hit.collider.tag == "Branch")
                 {
                     Destroy(hit.collider.gameObject);
+                    Debug.Log(hit.collider.gameObject.GetComponent<Branch>().item.name);
+                    itemOnWorld.GetInstance().AddNewItem(hit.collider.gameObject.GetComponent<Branch>().item);
+                }
+                
+            }
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.tag == "Key")
+                {
+                    Destroy(hit.collider.gameObject);
+                    Debug.Log(hit.collider.gameObject.GetComponent<Key>().item.name);
+                    itemOnWorld.GetInstance().AddNewItem(hit.collider.gameObject.GetComponent<Key>().item);
+                    DoorRotate.flag = 1;
+
+                }
+            }
+
+            if (hit.collider != null)
+            {
+                if (hit.collider.tag == "Gem")
+                {
+                    Destroy(hit.collider.gameObject);
+                    Debug.Log(hit.collider.gameObject.GetComponent<Gem>().item.name);
+                    itemOnWorld.GetInstance().AddNewItem(hit.collider.gameObject.GetComponent<Gem>().item);
                 }
             }
         }

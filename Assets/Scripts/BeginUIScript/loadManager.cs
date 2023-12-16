@@ -74,7 +74,6 @@ public class loadManager : MonoBehaviour
                     operation.allowSceneActivation = true;
                 }
             }
-
             yield return null;
         }
     }

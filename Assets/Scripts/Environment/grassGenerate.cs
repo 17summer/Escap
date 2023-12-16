@@ -8,7 +8,6 @@ public class grassGenerate : MonoBehaviour
     private float xMin, xMax, zMin, zMax, xRotationMax, xRotationMin;
     // to control the quantities of the stone in the scene
     private List<GameObject> grasses;
-    private bool flag;
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +46,6 @@ public class grassGenerate : MonoBehaviour
             generatedPositions.Add(spawnPosition);
         }
 
-        flag = true;
     }
 
 }

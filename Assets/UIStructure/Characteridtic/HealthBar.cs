@@ -14,22 +14,38 @@ public class HealthBar : MonoBehaviour
     public float damaged;
     public float stamina;
     public float lerpSpeed = 0.05f;
-    public float staminaRecoverSpeed = 8.3f;
-    public float staminaDepletionSpeed = 6.7f;
-    public float sprintRecoverySpeed = 4.5f;
+    public float staminaRecoverSpeed;
+    public float staminaDepletionSpeed;
+    public float sprintRecoverySpeed;
     public Text text_healthBar;
     public Text text_stamina;
     public bool isSprinting = false;
     public bool canSprint = true;
 
+    //to get the current health
+    public GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
-        stamina = maxStamina;
-        text_healthBar.text = $"{health} / 100";
-        text_stamina.text = $"{maxStamina} / 100";
-        Debug.Log(healthSlider.value);
+        playerData playerData = player.GetComponent<playerData>();
+        // judge whether the game is continue
+        Debug.Log(saveSystem.LOAD);
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (playerData.loadStatus == 1)
+        {
+            health = playerData.currentHealth;
+            stamina = maxStamina;
+            text_healthBar.text = $"{health} / 100";
+            text_stamina.text = $"{maxStamina} / 100";
+
+        }
+        else if (saveSystem.LOAD == 0)
+        {
+            health = maxHealth;
+            stamina = maxStamina;
+            text_healthBar.text = $"{health} / 100";
+            text_stamina.text = $"{maxStamina} / 100";
+        }
     }
 
     // Update is called once per frame
@@ -73,11 +89,6 @@ public class HealthBar : MonoBehaviour
             canSprint = false;
         }
 
-        //if (!Input.GetKey(KeyCode.LeftShift) || stamina <= 30.0f)
-        //{
-        //    isSprinting = false;
-        //}
-
         if (stamina < 30.0f && !isSprinting)
         {
             canSprint= false;
@@ -117,5 +128,12 @@ public class HealthBar : MonoBehaviour
     void heal()
     {
         health += 10;
+    }
+
+    IEnumerator setHealthPoints(float healthLoad)
+    {
+        yield return new WaitForSeconds(5f);
+
+        health = healthLoad;
     }
 }

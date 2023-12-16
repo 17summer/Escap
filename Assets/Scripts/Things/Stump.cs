@@ -3,6 +3,7 @@ using UnityEngine;
 public class Stump : MonoBehaviour
 {
     public float health = 100.0f;
+    public Item item;
     // Start is called before the first frame update
     void Start()
     {
