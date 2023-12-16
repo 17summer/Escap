@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487e11d060f203341b868b0f60c63aac, type: 3}
+  m_Script: {fileID: 11500000, guid: e5a18662e65e31740b52af61ac59f52d, type: 3}
   m_Name: GemSword
   m_EditorClassIdentifier: 
   itemName: GemSword
-  itemImage: {fileID: 21300000, guid: 4801d9a43cc7c2f418b578deef8b9ba5, type: 3}
+  itemImage: {fileID: 21300000, guid: 5be879224cc98e34e92aedd2a6642f46, type: 3}
   itemHeld: 0
-  itemInfo: A Gem Sword
-  equip: 0
+  itemInfo: "\u4E00\u628A\u94BB\u77F3\u5251"
+  equip: 1

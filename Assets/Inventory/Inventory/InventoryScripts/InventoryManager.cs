@@ -11,6 +11,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject emptySlot;
     public Text itemInformation;
     public List<GameObject> slots = new List<GameObject>();
+
      void Awake()
     {
         if (instance != null)
@@ -47,9 +48,20 @@ public class InventoryManager : MonoBehaviour
         {
             //CreateNewItem(instance.myBag.itemList[i]);
             instance.slots.Add(Instantiate(instance.emptySlot));
-            instance.slots[i].transform.SetParent(instance.slotGrid.transform);
+            instance.slots[i].transform.SetParent(instance.slotGrid.transform,false);
             instance.slots[i].GetComponent<Slot>().slotID = i;
             instance.slots[i].GetComponent<Slot>().SetupSlot(instance.myBag.itemList[i]);
+        }
+    }
+
+    public static void ClearItems()
+    {
+        for (int i = 0; i < instance.slotGrid.transform.childCount; i++)
+        {
+            if (instance.slotGrid.transform.childCount == 0)
+                break;
+            Destroy(instance.slotGrid.transform.GetChild(i).gameObject);
+            instance.slots.Clear();
         }
     }
 }

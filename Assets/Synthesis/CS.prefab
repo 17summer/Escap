@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5212482587071576651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7455759865570964248}
+  - component: {fileID: 1657166063249506935}
+  m_Layer: 0
+  m_Name: CS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7455759865570964248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212482587071576651}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 260.03226, y: 299.54794, z: -5.978248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1657166063249506935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212482587071576651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff7f06cdfae605419201dfe092adccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - name: Wood
+    ID: 1
+    sprite: {fileID: 21300000, guid: 95ee17c65a1475842a4ed58449df6c1f, type: 3}
+    craftble: 0
+    craftID: 1
+  - name: Grass
+    ID: 2
+    sprite: {fileID: 21300000, guid: 0770a867183f9914fa420d435321de80, type: 3}
+    craftble: 0
+    craftID: 2
+  - name: Diamond
+    ID: 3
+    sprite: {fileID: 21300000, guid: d3cd236c89a432043bb94fda1e07b7ed, type: 3}
+    craftble: 0
+    craftID: 3
+  - name: Gravel
+    ID: 4
+    sprite: {fileID: 21300000, guid: 4888fe4dfb3922343b4578edf70c5c39, type: 3}
+    craftble: 0
+    craftID: 4
+  - name: Axe
+    ID: 5
+    sprite: {fileID: 21300000, guid: 1f915c525e187aa448306915c0ec5bc6, type: 3}
+    craftble: 1
+    craftID: 412
+  - name: Stone_sword
+    ID: 6
+    sprite: {fileID: 21300000, guid: f547c73ebc9ca4a42b2e43d1b5c10a9b, type: 3}
+    craftble: 1
+    craftID: 442
+  - name: Diamond_sword
+    ID: 7
+    sprite: {fileID: 21300000, guid: 5be879224cc98e34e92aedd2a6642f46, type: 3}
+    craftble: 1
+    craftID: 336
+  craftbleItems: []
+  isCrafting: 1
+  currentCraftID: 
+  craftInputs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  craftImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  resultImage: {fileID: 0}
+  emptySlot: {fileID: 0}

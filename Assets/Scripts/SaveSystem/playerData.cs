@@ -9,23 +9,20 @@ public class playerData : MonoBehaviour
 {
     [SerializeField] private float hitpoints;
     public Slider hitPointsBar;
-    public Slider volumeBar;
     public HealthBar health;
-    [SerializeField] private float volumeValue;
+    public GameObject healthPanel;
+    public HealthBar realHealth;
+    //record the load information
+    public float currentHealth;
+    // record the continue status
+    public float loadStatus;
     
     [System.Serializable] class saveData
     {
         public float hitPoints;
-        public float volumeBar;
         public Vector3 position;
     }
-    //public playerData()
-    //{
-    //    hitpoints = hitPointsBar.value;
-    //    volumeValue = volumeBar.value;
-    //}
 
-    public float VolumeValue => volumeValue;
     public float HitPoints => hitpoints;
     public Vector3 Position => transform.position;
 
@@ -35,8 +32,16 @@ public class playerData : MonoBehaviour
 
     private void Start()
     {
+        loadStatus = 0;
+        realHealth = healthPanel.GetComponent<HealthBar>();
+        if (saveSystem.LOAD == 0)
+        {
+            itemOnWorld.GetInstance().clearItems();
+        }
+
         if (saveSystem.LOAD == 1)
         {
+            loadStatus = 1;
             Load();
             saveSystem.LOAD= 0;
         }
@@ -63,30 +68,22 @@ public class playerData : MonoBehaviour
     void LoadFromJson()
     {
         var data = saveSystem.LoadFromJson<saveData>(PLAYER_DATA_FILE_NAME_1);
-
         LoadData(data);
     }
 
     void LoadData(saveData saveData)
     {
-        health.maxHealth = saveData.hitPoints;
-        volumeBar.value = saveData.hitPoints;
+        currentHealth = saveData.hitPoints;
+        realHealth.health = saveData.hitPoints;
         transform.position = saveData.position;
-        Debug.Log(volumeBar.value);
-        Debug.Log(hitPointsBar.value);
-        Debug.Log(transform.position);
         Debug.Log("Loading!");
     }
 
     saveData Saving()
     {
         var saveData= new saveData();
-        saveData.hitPoints = hitPointsBar.value;
-        saveData.volumeBar= volumeBar.value;
+        saveData.hitPoints = health.healthSlider.value;
         saveData.position =Position;
-        //volumeBar.value = VolumeValue;
-        //hitPointsBar.value = HitPoints;
-
 
         return saveData;
     }

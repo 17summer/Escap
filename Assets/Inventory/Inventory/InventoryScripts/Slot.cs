@@ -10,9 +10,12 @@ public class Slot : MonoBehaviour
     public Text slotNum;
     public GameObject itemInSlot;
     public string slotinfo;
+    public static Item temp;
     public void ItemOnClicked()
     {
         InventoryManager.UpdateItemInfo(slotinfo);
+        Debug.Log(slotItem.itemName);
+        temp = slotItem;
     }
     public void SetupSlot(Item item)
     {
@@ -24,6 +27,14 @@ public class Slot : MonoBehaviour
         slotImage.sprite = item.itemImage;
         slotNum.text = item.itemHeld.ToString();
         slotinfo = item.itemInfo;
+        slotItem= item; 
+    }
+
+    public void useEqiupment()
+    {
+        Debug.Log(temp);
+        Debug.Log(temp.itemName);
+        spawnEquipment.GetInstance().swapWeapon(temp.itemName);
     }
 }
     

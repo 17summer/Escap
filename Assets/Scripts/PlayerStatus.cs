@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
@@ -16,12 +17,28 @@ public class PlayerStatus : MonoBehaviour
     public AudioClip clipWeapon;
 
     private bool flag;
+
+    public GameObject player;
+    private PlayerController playerController;
+    private RAYCastPickup rAYCastPickup;
+    private PlayerStatus playerStatus;
+
+    public Button restart;
     // Start is called before the first frame update
     void Start()
     {
         flag = true;
         animator = GetComponent<Animator>();
         heartBeatTime = 5.0f;
+
+        playerController = player.GetComponent<PlayerController>();
+        rAYCastPickup = player.GetComponent<RAYCastPickup>();
+        playerStatus = player.GetComponent<PlayerStatus>();
+
+        if(restart != null)
+        {
+            restart.gameObject.SetActive(false);    
+        }
     }
 
     // Update is called once per frame
@@ -40,9 +57,14 @@ public class PlayerStatus : MonoBehaviour
         if(playerHealth.value == 0)
         {
             animator.SetBool("Dying", true);
+
+            playerController.enabled = false;
+            rAYCastPickup.enabled = false;
+            playerStatus.enabled = false;
+            restart.gameObject.SetActive(true);
         }
-        
-        if(playerHealth.value > 0)
+
+        if (playerHealth.value > 0)
         {
             animator.SetBool("Dying", false);
         }
@@ -61,6 +83,7 @@ public class PlayerStatus : MonoBehaviour
                 StartCoroutine(weaponWaitMusicPlay());
                 weaponPlay(flag);
                 StartCoroutine(weaponMusicPlay());
+
             }
             Debug.Log("Mouse 1 is pressed.");
             flag = false;
@@ -105,4 +128,5 @@ public class PlayerStatus : MonoBehaviour
         audioSource.clip = clipHeartBeat;
         audioSource.Play();
     }
+
 }

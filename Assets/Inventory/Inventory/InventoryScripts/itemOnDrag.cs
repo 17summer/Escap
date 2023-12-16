@@ -19,7 +19,6 @@
         public void OnDrag(PointerEventData eventData)
         {
             transform.position = eventData.position;
-            Debug.Log(eventData.pointerCurrentRaycast.gameObject.name);
         }
 
         public void OnEndDrag(PointerEventData eventData)

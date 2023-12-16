@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487e11d060f203341b868b0f60c63aac, type: 3}
+  m_Script: {fileID: 11500000, guid: e5a18662e65e31740b52af61ac59f52d, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
   itemName: Axe
-  itemImage: {fileID: 21300000, guid: 10d59999ac7c8774d8e013c52376c81f, type: 3}
+  itemImage: {fileID: 21300000, guid: 1f915c525e187aa448306915c0ec5bc6, type: 3}
   itemHeld: 0
-  itemInfo: A stone axe
-  equip: 0
+  itemInfo: "\u4E00\u628A\u950B\u5229\u7684\u65A7\u5934"
+  equip: 1

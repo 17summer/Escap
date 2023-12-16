@@ -40,8 +40,8 @@ public class Setting : MonoBehaviour
         Application.Quit();
     }
 
-    public void SaveBtn()
-    { 
-        
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

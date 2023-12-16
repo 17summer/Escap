@@ -11,6 +11,8 @@ TagManager:
   - stone
   - Grass
   - Branch
+  - Key
+  - Gem
   layers:
   - Default
   - TransparentFX
